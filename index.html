@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zverimex</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container">
+      <div class="wrap order-box my-3">
+        <h3 class="text-center mb-4">Objednávka Krmiva</h3>
+        <form id="order-form">
+          <!-- Výběr krmiva -->
+          <div class="mb-3">
+            <label class="form-label">Vyberte krmivo:</label>
+            <select id="food-select" class="form-select">
+              <option value="150">Psí žrádlo - 150 Kč/kg</option>
+              <option value="120">Kočičí žrádlo - 120 Kč/kg</option>
+              <option value="50">Žrádlo pro rybičky - 50 Kč/kg</option>
+              <option value="800">Žrádlo pro tygra - 800 Kč/kg</option>
+            </select>
+          </div>
+
+          <!-- Počet kg + Cena -->
+          <div class="mb-3">
+            <label class="form-label">Počet kg:</label>
+            <input type="number" id="quantity" class="form-control" placeholder="Počet kg" min="1" value="1" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Aktuálně:</label>
+            <input type="text" id="base-price" class="form-control" readonly placeholder="Aktuální cena" />
+          </div>
+
+          <!-- Kvalita -->
+          <h5 class="mt-4">Volitelné vlastnosti</h5>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bio" value="30" />
+              <label class="form-check-label" for="bio">Bio kvalita (+30%)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="premium" value="50" />
+              <label class="form-check-label" for="premium">Extra premium kvalita (+50%)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="low-quality" value="-15" />
+              <label class="form-check-label" for="low-quality">Extra nekvalita pro chudé (-15%)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gift-pack" value="500" />
+              <label class="form-check-label" for="gift-pack">Dárkové balení (+500 Kč)</label>
+            </div>
+          </div>
+
+          <!-- Doprava -->
+          <h5 class="mt-4">Způsob dopravy</h5>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="delivery" id="pickup" value="0" checked />
+              <label class="form-check-label" for="pickup">Osobní odběr (bez příplatku)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="delivery" id="courier" value="10" />
+              <label class="form-check-label" for="courier">Firemní kurýr (+10%)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="delivery" id="post" value="250" />
+              <label class="form-check-label" for="post">Česká pošta (+250 Kč)</label>
+            </div>
+          </div>
+
+          <!-- Výsledná cena -->
+          <div class="mb-3">
+            <label for="total-price" class="form-label">Celková cena:</label>
+            <input type="text" id="total-price" class="form-control" readonly />
+          </div>
+          <hr />
+          <!-- Rozpočet a ověření -->
+          <div class="mb-3">
+            <input type="number" id="budget" class="form-control" placeholder="Jaký je váš rozpočet?" />
+          </div>
+          <div class="mb-3">
+            <button type="button" id="check-budget" class="btn btn-secondary w-100">Zkontrolovat</button>
+          </div>
+          <p id="budget-result" class="text-center"></p>
+          <hr />
+          <!-- E-mail -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Váš email:</label>
+            <div class="input-group">
+              <span class="input-group-text">Jméno:</span>
+              <input type="text" id="email" class="form-control" required placeholder="novak" />
+              <span class="input-group-text">@gmail.com</span>
+            </div>
+            <div id="email-error" class="text-danger text-center mt-2"></div>
+          </div>
+
+          <!-- Odeslat -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-success w-100">Odeslat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
