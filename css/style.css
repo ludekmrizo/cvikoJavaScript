@@ -3,7 +3,7 @@ body {
 }
 
 .order-box {
-  width: 600px;
+  max-width: 600px;
   align-content: center;
   background-color: hsl(33, 100%, 88%, 0.3);
   padding: 20px;
